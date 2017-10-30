@@ -1,0 +1,312 @@
+* {margin: 0; padding: 0; vertical-align: baseline;}
+body {font-family: "Arial";}
+li {list-style: none;}
+a {text-decoration: none;}
+
+/*높이 자동 조절은 html, body의 height을 100%로 두어야 사용 가능*/
+html, body, .main{
+  height: 100%
+}
+
+body {
+  overflow-y: scroll;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+footer{
+  order:5;
+}
+
+div, span, nav, footer{
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+  position:relative;
+  border: 0 solid black;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+/*범용 클래스*/
+.txt_hidden{
+  text-indent: 110%
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+}
+
+.main{
+  height: 100%;
+  order: 4;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+.container, .footer_area{
+  margin: 40px auto 0;
+  flex-direction: row;
+  max-width: 935px;
+}
+.phone{
+  align-self: center;
+  background-image: url('img/home_phone.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 454px 618px;
+  background-size: 454px 618px;
+  flex-basis: 454px;
+  height: 618px;
+  margin-left: -35px;
+  margin-right: -15px;
+}
+.phone_img{
+  margin-top: 10px;
+  margin-left: 151px;
+}
+.phone_img>img{
+  position: absolute;
+  width: 240px; height: 427px;
+}
+
+.total_box{
+  max-width: 350px;
+  margin-top: 20px;
+}
+.signup_box, .signin_box{
+  border: 1px solid #e7e7e7;
+  border-radius: 1px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+.header{
+  margin: 22px auto 8px;
+  background-image: url('img/sprite_core.png');
+  background-position: 0 0;
+  width: 175px; height: 52px;
+  text-align: center;
+  text-indent: 110%;
+  overflow: hidden;
+}
+.login_box{
+  margin-bottom: 20px;
+}
+.signup_text{
+  margin: 0 40px 10px;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  color: #999;
+  font-weight: 600;
+}
+
+.btn_box{
+  margin: 8px 40px;
+}
+.btn{
+  border: 1px solid #3897f0;
+  background-color: #3897f0;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+}
+.fb_logo{
+  display: inline-block;
+  top: 2px;
+  margin-right: 8px;
+  position: relative;
+  background-image: url('img/sprite_core.png');
+  background-position: -312px -115px;
+  width: 16px; height: 16px;
+  background-repeat: no-repeat;
+}
+/*사이사이 hidden 상태의 div가 존재하면 margin-collapse 현상을 방지할 수 있으나 완벽한 해결방법은 아님*/
+.bd_box{
+  flex-direction: row;
+  margin: 10px 40px 18px;
+}
+.bd_line{
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  background-color: #c7c7c7;
+  height: 1px;
+  position: relative;
+  top: 0.45em;
+}
+.bd_text{
+  margin: 0 18px;
+  font-size: 13px;
+  color: #999;
+  line-height: 15px;
+  font-weight: 600;
+}
+.input_box{
+  margin: 0 40px 6px;
+}
+.input_s_box{
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  background-color: #fafafa;
+}
+.input_s_box>input{
+  border: 0;
+  flex: 1 0 0px;
+  padding: 9px 0 7px 8px;
+  background-color: #fafafa;
+  outline: none;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.agree{
+  margin: 10px 60px;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #999;
+}
+.agree>a{
+  color: #999;
+  font-weight: 600;
+}
+
+.ask{
+  margin: 15px;
+  font-size: 14px;
+  color: #262626;
+  text-align: center;
+}
+.ask>a{
+  color: #3897f0;
+}
+
+.download_box{
+  text-align: center;
+  margin-top: 10px;
+}
+.dl_text{
+  margin: 10px 20px;
+  font-size: 14px;
+  color: #262626;
+}
+.badge_box{
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 10px 0;
+}
+.badge_box>a{
+  margin-right: 8px;
+}
+.badge_box>a>img{
+  height: 40px;
+}
+
+footer{
+  padding: 0 20px;
+}
+.footer_area{
+  padding:38px 0;
+  margin: 0 auto;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+  justify-content: space-between;
+}
+.nav_left{
+  max-width: 100%;
+}
+.nav_li{
+  margin-right: 16px;
+  flex-grow: 1px;
+  margin-bottom: 3px;
+  align-items: center;
+}
+.nav_unit{
+  display: inline-block;
+  margin-bottom: 7px;
+  margin-right: 16px;
+}
+.copyright{
+  flex-direction: row;
+  color: #999;
+}
+
+.download_bar{
+  padding:0 8px;
+  background-color: #d10869;
+  overflow: hidden;
+  display: block;
+}
+.grd_bar{
+  background: radial-gradient(ellipse at 70% 70%, #ee583f 8%, #d92d77 42%, #bd3381 58%);
+  height: 100%;
+  width: 100%;
+}
+.content{
+  z-index: 1;
+}
+.dl_link{
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 11px 13px 11px 11px;
+  justify-content: space-between;
+}
+.desc{
+  padding-left: 4px;
+  flex: 1 1 200px;
+  min-width: 1px;
+  padding-right: 11px;
+}
+.desc_header{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 15px;
+  margin: 0 0 2px;
+}
+.desc_text{
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  margin: 0;
+}
+.dl_btn{
+  flex-direction: row;
+  text-align: right;
+}
+.dl_btn>button{
+  color: #fff;
+  background: 0 0;
+  border: 1px solid white;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-weight: 600;
+  line-height: 25px;
+  padding: 0 10px;
+  -webkit-transform: uppercase;
+  -ms-transform: uppercase;
+  transform: uppercase;
+}
