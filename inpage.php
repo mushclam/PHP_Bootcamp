@@ -127,6 +127,7 @@
       justify-content: flex-start;
       border-radius: 3px;
       margin-bottom: 15px;
+      padding-bottom: 0;
     }
     .profile{
       flex-direction: row;
@@ -146,6 +147,7 @@
       font-size: 13px;
       font-weight: 600;
       margin-right: 6px;
+      color: #262626;
     }
     .picture{
       width: 100%; max-height: 600px;
@@ -165,14 +167,26 @@
       flex-direction: row;
       justify-content: flex-start;
     }
+
+    .check_btn{
+      display: none;
+    }
     .heart_btn{
       height: 24px; width: 24px;
       background-position: -208px -336px;
       margin-right: 16px;
+      cursor: pointer;
+    }
+    #heart:checked ~ label:first-of-type{
+      height: 24px; width: 24px;
+      background-position: -182px -336px;
+      margin-right: 16px;
+      cursor: pointer;
     }
     .comm_btn{
       height: 24px; width: 24px;
       background-position: -355px -263px;
+      cursor: pointer;
     }
     .react_box>a{
       color: #262626;
@@ -183,36 +197,42 @@
     .main_text{
       flex-direction: row;
       justify-content: flex-start;
+      align-items: center;
       margin-bottom: 8px;
     }
     .main_text>p{
       font-size: 14px;
+      line-height: 18px;
       margin-right: 10px;
+      vertical-align: baseline;
     }
     .ext_btn{
       font-size: 14px;
       color: #999;
+      line-height: 18px;
     }
     .comment_box>.ext_btn{
       margin-bottom: 8px;
     }
     .comm_li>li{
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       flex-direction: row;
       align-items: center;
     }
     .comm_text{
-      font-size: 15px;
+      font-size: 14px;
       display: inline-block;
     }
     .posted_date{
-      font-size: 12px;
+      margin-bottom: 4px;
+      font-size: 10px;
       color: #999;
     }
     .more_detail{
       position: absolute;
-      top: 0; right: 10px;
-      height: 60px;
+      bottom: 0; right: 10px;
+      height: 52px;
+      top: auto;
     }
     .detail_btn{
       background-color: #fff;
@@ -223,6 +243,28 @@
     .dot{
       background-position: -276px -115px;
       height: 16px; width: 16px;
+    }
+
+    .mkcomment{
+      border-top: 1px solid #e6e6e6;
+      padding: 16px 0;
+      padding-right: 26px;
+      margin-top: 4px;
+      font-size: 14px;
+      line-height: 18px;
+      min-height: 56px;
+      flex-shrink: 0;
+    }
+    .mkcomm_s_box{
+      border: 0;
+      font-family: 'Arial';
+      color: #262626;
+      background: 0 0;
+      height: 18px;
+      max-height: 80px;
+      outline: none;
+      padding: 0;
+      resize: none;
     }
   </style>
 </head>
@@ -252,10 +294,40 @@
   <div class="main">
     <div class="container">
       <?php
-      $uricon = ['img/up1.jpg', 'img/up2.jpg', 'img/up2.jpg', 'img/up3.jpg'];
-      $urname = ['23yearsold_official', 'coolcatanice', 'coolcatanice', 'thanksbooks'];
-      $contpic = ['img/us1.jpg', 'img/us2.jpg', 'img/us3.jpg', 'img/us4.jpg '];
-      $likenum = [23, 35];
+      $uricon = ['img/up4.jpg', 'img/up2.jpg', 'img/up2.jpg', 'img/up3.jpg'];
+      $urname = ['type4graphic', 'coolcatanice', 'coolcatanice', 'thanksbooks'];
+      $contpic = ['img/us5.jpg', 'img/us2.jpg', 'img/us3.jpg', 'img/us4.jpg '];
+      $likenum = ['8,096', '45', '48', '112'];
+      $mt = [
+        '',
+        '#이봄 @konglalala',
+        '#회사부적응퇴사불가능 #호송 #호송송 #류호우 @hosongsong #류호우 @ryuhowoo',
+        '[입고 안내] 매거진 <부엌>을 발행하는 로우프레스에서 1년에 2번, 다양한 도시와 사람들을 통해 지속 가능한 삶에 대해 탐구하는 로컬 다큐멘터리 매거진을 만들었습니다. <나우 매거진> 창간호의 주제는'
+      ];
+      $post_comm = [
+        0 => [
+          'goohagooha' => '😐',
+          'ji1.e' => '@ru.cha_ng 💗',
+          'kim.chacha' => '후',
+          'nl3163' => '와!! 공감 만프로!',
+          'mimini_k' => '허......'
+        ],
+        1 => [
+          'khj_ngj' => '저희도 먼저 말걸어주셔서 엄청 감사했어요 ㅎㅎㅎ. 응 그라 시집 제가 구매한 첫 시집이네요! 눈에 마음에 잘 새기고 있습니당~',
+          'coolcatanice' => '@khj_ngj 앗앗앗 정말요? 오마이갓 첫시집이시라니...먼가 부끄러워지네요 모쪼록 마음에 위안이 되는 글이길 바랄게요^^감사합니다',
+          'hh.dal' => '너무 감사했습니다! 작가님 덕분에 즐겁게 참여했어요~~😌',
+          'coolcatanice' => '@hh.dal 제가 좀 부산스럽고 어수선쟁이라 사고안난게 다행이에요..꼭 어딘가 부서지고 질질흘리고 다녀서 ㅋㅋㅋ',
+          '0320cherry' => '예쁘당.....!!!!!^♡♡♡^',
+          'konglalala' => '감사합니다!'
+        ],
+        2 => [
+          'hosongsong' => '와우 포스팅 감사합니다요 ㅎㅎㅎ',
+          'coolcatanice' => '@hosongsong 출근중이신가봐요~~오늘도 화이팅하시길 바랍니다! 저도 꼰대세대이긴하지만 너희때는 어떠니?라고 묻는 사람이 될게요^^~~~',
+          'ryuhowoo' => '감사합니다🙏🏻'
+        ],
+        3 => []
+      ];
+      $post_date = ['4시간 전', '8시간 전', '16시간 전', '4일 전'];
       for($i = 0; $i < count($uricon); $i++){
         echo '
           <div class="content signup_box">
@@ -264,51 +336,69 @@
                 <span class="prof_pic"><img src="'.$uricon[$i].'" alt="" style="width:30px; height:30px;"></span>
                 <div class="prof_name">'.$urname[$i].'</div>
               </div>
-              <span class="more_detail">
-                <button class="detail_btn">
-                  <span class="dot sprite_btn"></span>
-                </button>
-              </span>
+
             </div>
             <div class="picture"><img src="'.$contpic[$i].'" alt=""></div>
             <div class="other">
               <div class="react_box">
                 <div class="react_btn">
-                  <span class="sprite_btn heart_btn"></span>
-                  <span class="sprite_btn comm_btn"></span>
+                  <input type="checkbox" name="heart" id="heart" class="check_btn"/>
+                  <label for="heart" class="sprite_btn heart_btn" ></label>
+                  <input type="checkbox" name="comm" id="comm" class="check_btn"/>
+                  <label for="comm" class="sprite_btn comm_btn"></span>
                 </div>
                 <a href="#">좋아요 '.$likenum[$i].'개</a>
               </div>
-              <div class="main_text">
-                <div class="prof_name">23yearsold_official</div>
-                <p>본문</p>
-                <div class="ext_btn">문구 더 보기</div>
+              <div class="main_text">';
+              if($mt[$i]){
+                echo '
+                <p>
+                  <a href ="#" class="prof_name">'.$urname[$i].'</a>
+                  '.$mt{$i}.'
+                  <a href ="#" class="ext_btn">문구 더 보기</a>
+                </p>
+                ';
+              }
+              echo '
               </div>
-              <div class="comment_box">
-                <div class="ext_btn">댓글 모두 보기</div>
+              <div class="comment_box">';
+              if(count($post_comm[$i])>4){
+                echo '<div class="ext_btn">댓글 모두 보기</div>';
+              }
+              echo '
                 <div class="comment">
-                  <ul class="comm_li">
-                    <li>
-                      <div class="prof_name">test</div>
-                      <div class="comm_text">test</div>
-                    </li>
-                    <li>
-                      <div class="prof_name">test</div>
-                      <div class="comm_text">test</div>
-                    </li>
-                    <li>
-                      <div class="prof_name">test</div>
-                      <div class="comm_text">test</div>
-                    </li>
-                    <li>
-                      <div class="prof_name">test</div>
-                      <div class="comm_text">test</div>
-                    </li>
+                  <ul class="comm_li">';
+                  if($post_comm[$i]){
+                    $k = 0;
+                    foreach($post_comm[$i] as $key => $value){
+                      echo '
+                      <li>
+                        <p class="comm_text">
+                          <a class="prof_name">'.$key.'</a>'.$value.'
+                        </p>
+                      </li>
+                      ';
+                      $k++;
+                      if($k>=4){
+                        break;
+                      }
+                    }
+                  }
+                  echo '
                   </ul>
                 </div>
-                <div class="posted_date">6일 전</div>
-                <div class="mkcomment"></div>
+                <div class="posted_date">'.$post_date[$i].'</div>
+                <div class="mkcomment">
+                  <form class="mkcomm_b_box">
+                    <textarea class="mkcomm_s_box" placeholder="댓글 달기..." style="height:18px;"></textarea>
+                  </form>
+                </div>
               </div>
+              <span class="more_detail">
+                <button class="detail_btn">
+                  <span class="dot sprite_btn"></span>
+                </button>
+              </span>
             </div>
           </div>';
         }
