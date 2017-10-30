@@ -123,7 +123,6 @@
     }
     .content{
       width: 100%;
-      height: 100%;
       padding-top: 0;
       justify-content: flex-start;
       border-radius: 3px;
@@ -149,8 +148,11 @@
       margin-right: 6px;
     }
     .picture{
-      width: 100%; height: 600px;
+      width: 100%; max-height: 600px;
       overflow: hidden;
+    }
+    .picture>img{
+      width: 100%;
     }
     .other{
       padding: 0 16px;
@@ -250,67 +252,67 @@
   <div class="main">
     <div class="container">
       <?php
-      $uricon = ['img/up1.jpg', 'img/up2.jpg'];
-      $urname = ['23yearsold_official', 'coolcatanice'];
-      $contpic = ['img/us1.jpg', 'img/us2.jpg'];
+      $uricon = ['img/up1.jpg', 'img/up2.jpg', 'img/up2.jpg', 'img/up3.jpg'];
+      $urname = ['23yearsold_official', 'coolcatanice', 'coolcatanice', 'thanksbooks'];
+      $contpic = ['img/us1.jpg', 'img/us2.jpg', 'img/us3.jpg', 'img/us4.jpg '];
       $likenum = [23, 35];
-      for($i = 0; $i < 3; $i++){
-        echo 'hello';
-      }
-      ?>
+      for($i = 0; $i < count($uricon); $i++){
+        echo '
           <div class="content signup_box">
-          <div class="user_box">
-            <div class="profile">
-              <span class="prof_pic"><img src="img/up1.jpg" alt="" style="width:30px; height:30px;"></span>
-              <div class="prof_name">23yearsold_official</div>
-            </div>
-            <span class="more_detail">
-              <button class="detail_btn">
-                <span class="dot sprite_btn"></span>
-              </button>
-            </span>
-          </div>
-          <div class="picture"><img src="img/us1.jpg" alt=""></div>
-          <div class="other">
-            <div class="react_box">
-              <div class="react_btn">
-                <span class="sprite_btn heart_btn"></span>
-                <span class="sprite_btn comm_btn"></span>
+            <div class="user_box">
+              <div class="profile">
+                <span class="prof_pic"><img src="'.$uricon[$i].'" alt="" style="width:30px; height:30px;"></span>
+                <div class="prof_name">'.$urname[$i].'</div>
               </div>
-              <a href="#">좋아요</a>
+              <span class="more_detail">
+                <button class="detail_btn">
+                  <span class="dot sprite_btn"></span>
+                </button>
+              </span>
             </div>
-            <div class="main_text">
-              <div class="prof_name">23yearsold_official</div>
-              <p>본문</p>
-              <div class="ext_btn">문구 더 보기</div>
-            </div>
-            <div class="comment_box">
-              <div class="ext_btn">댓글 모두 보기</div>
-              <div class="comment">
-                <ul class="comm_li">
-                  <li>
-                    <div class="prof_name">test</div>
-                    <div class="comm_text">test</div>
-                  </li>
-                  <li>
-                    <div class="prof_name">test</div>
-                    <div class="comm_text">test</div>
-                  </li>
-                  <li>
-                    <div class="prof_name">test</div>
-                    <div class="comm_text">test</div>
-                  </li>
-                  <li>
-                    <div class="prof_name">test</div>
-                    <div class="comm_text">test</div>
-                  </li>
-                </ul>
+            <div class="picture"><img src="'.$contpic[$i].'" alt=""></div>
+            <div class="other">
+              <div class="react_box">
+                <div class="react_btn">
+                  <span class="sprite_btn heart_btn"></span>
+                  <span class="sprite_btn comm_btn"></span>
+                </div>
+                <a href="#">좋아요 '.$likenum[$i].'개</a>
               </div>
-              <div class="posted_date">6일 전</div>
-              <div class="mkcomment"></div>
+              <div class="main_text">
+                <div class="prof_name">23yearsold_official</div>
+                <p>본문</p>
+                <div class="ext_btn">문구 더 보기</div>
+              </div>
+              <div class="comment_box">
+                <div class="ext_btn">댓글 모두 보기</div>
+                <div class="comment">
+                  <ul class="comm_li">
+                    <li>
+                      <div class="prof_name">test</div>
+                      <div class="comm_text">test</div>
+                    </li>
+                    <li>
+                      <div class="prof_name">test</div>
+                      <div class="comm_text">test</div>
+                    </li>
+                    <li>
+                      <div class="prof_name">test</div>
+                      <div class="comm_text">test</div>
+                    </li>
+                    <li>
+                      <div class="prof_name">test</div>
+                      <div class="comm_text">test</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="posted_date">6일 전</div>
+                <div class="mkcomment"></div>
               </div>
             </div>
-          </div>
+          </div>';
+        }
+      ?>
     </div>
   </div>
 </body>
