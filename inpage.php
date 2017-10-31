@@ -257,6 +257,7 @@
     }
     .mkcomm_s_box{
       border: 0;
+      width: 100%;
       font-family: 'Arial';
       color: #262626;
       background: 0 0;
@@ -328,17 +329,17 @@
         3 => []
       ];
       $post_date = ['4시간 전', '8시간 전', '16시간 전', '4일 전'];
-      for($i = 0; $i < count($uricon); $i++){
-        echo '
+      for($i = 0; $i < count($uricon); $i++): ?>
+
           <div class="content signup_box">
             <div class="user_box">
               <div class="profile">
-                <span class="prof_pic"><img src="'.$uricon[$i].'" alt="" style="width:30px; height:30px;"></span>
-                <div class="prof_name">'.$urname[$i].'</div>
+                <span class="prof_pic"><img src="<?= $uricon[$i] ?>" alt="" style="width:30px; height:30px;"></span>
+                <div class="prof_name"><?= $urname[$i] ?></div>
               </div>
 
             </div>
-            <div class="picture"><img src="'.$contpic[$i].'" alt=""></div>
+            <div class="picture"><img src="<?= $contpic[$i] ?>" alt=""></div>
             <div class="other">
               <div class="react_box">
                 <div class="react_btn">
@@ -347,28 +348,24 @@
                   <input type="checkbox" name="comm" id="comm" class="check_btn"/>
                   <label for="comm" class="sprite_btn comm_btn"></span>
                 </div>
-                <a href="#">좋아요 '.$likenum[$i].'개</a>
+                <a href="#">좋아요 <?= $likenum[$i] ?>개</a>
               </div>
-              <div class="main_text">';
-              if($mt[$i]){
-                echo '
+              <div class="main_text">
+              <?php if($mt[$i]): ?>
                 <p>
-                  <a href ="#" class="prof_name">'.$urname[$i].'</a>
-                  '.$mt{$i}.'
+                  <a href ="#" class="prof_name"><?= $urname[$i] ?></a>
+                  <?= $mt{$i} ?>
                   <a href ="#" class="ext_btn">문구 더 보기</a>
                 </p>
-                ';
-              }
-              echo '
+              <?php endif; ?>
               </div>
-              <div class="comment_box">';
-              if(count($post_comm[$i])>4){
-                echo '<div class="ext_btn">댓글 모두 보기</div>';
-              }
-              echo '
+              <div class="comment_box">
+              <?php if(count($post_comm[$i])>4): ?>
+                <div class="ext_btn">댓글 모두 보기</div>
+              <?php endif; ?>
                 <div class="comment">
-                  <ul class="comm_li">';
-                  if($post_comm[$i]){
+                  <ul class="comm_li">
+                  <?php if($post_comm[$i]){
                     $k = 0;
                     foreach($post_comm[$i] as $key => $value){
                       echo '
@@ -383,11 +380,10 @@
                         break;
                       }
                     }
-                  }
-                  echo '
+                  } ?>
                   </ul>
                 </div>
-                <div class="posted_date">'.$post_date[$i].'</div>
+                <div class="posted_date"><?= $post_date[$i] ?></div>
                 <div class="mkcomment">
                   <form class="mkcomm_b_box">
                     <textarea class="mkcomm_s_box" placeholder="댓글 달기..." style="height:18px;"></textarea>
@@ -400,9 +396,8 @@
                 </button>
               </span>
             </div>
-          </div>';
-        }
-      ?>
+          </div>
+        <?php endfor; ?>
     </div>
   </div>
 </body>
