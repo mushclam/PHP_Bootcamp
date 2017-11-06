@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width">
-    <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="inp_css.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/inp_css.css">
     <style>
     </style>
 </head>
@@ -35,22 +35,15 @@
 <div class="main">
     <div class="container">
         <?php
-        require_once "dblink.php";
-        foreach ($data as $outerValue): 
-            $urid = $outerValue['urid'];
-            $user->execute();
-            $urList = $user->fetch(PDO::FETCH_ASSOC);
-
-            $commid = (int)$outerValue['commid'];
-            $comm->execute();
-            $commList = $comm->fetchAll(PDO::FETCH_ASSOC);
-            ?>
+        require_once "php/dblink.php";
+        $post = $dbConn->postCall();
+        foreach ($post as $outerValue): ?>
             <div class="content signup_box">
                 <div class="user_box">
                     <div class="profile">
-                        <span class="prof_pic"><img src="<?= $urList['uricon'] ?>" alt=""
+                        <span class="prof_pic"><img src="<?= $outerValue['uricon'] ?>" alt=""
                                                     style="width:30px; height:30px;"></span>
-                        <div class="prof_name"><?= $urList['urname'] ?></div>
+                        <div class="prof_name"><?= $outerValue['urname'] ?></div>
                     </div>
                 </div>
                 <div class="picture"><img src="<?= $outerValue['contopic'] ?>" alt=""></div>
@@ -60,46 +53,24 @@
                             <input type="checkbox" name="heart" id="heart" class="check_btn"/>
                             <label for="heart" class="sprite_btn heart_btn"></label>
                             <input type="checkbox" name="comm" id="comm" class="check_btn"/>
-                            <label for="comm" class="sprite_btn comm_btn"></span>
+                            <label for="comm" class="sprite_btn comm_btn"></label>
                         </div>
                         <a href="#">좋아요
-                            <?php require "like.php"; ?>개</a>
+                            <?php require "php/like.php"; ?>개</a>
                     </div>
                     <div class="main_text">
                         <?php if ($outerValue['mt']): ?>
                             <p>
-                                <a href="#" class="prof_name"><?= $urList['urname'] ?></a>
+                                <a href="#" class="prof_name"><?= $outerValue['urname'] ?></a>
                                 <?= $outerValue['mt'] ?>
                                 <a href="#" class="ext_btn">문구 더 보기</a>
                             </p>
                         <?php endif; ?>
                     </div>
                     <div class="comment_box">
-                        <?php if (count($commList) > 4): ?>
-                            <div class="ext_btn">댓글 모두 보기</div>
-                        <?php endif; ?>
-                        <div class="comment">
-                            <ul class="comm_li">
-                                <?php if ($commList) {
-                                    $k = 0;
-                                    foreach ($commList as $innerValue){
-                                        echo '
-                      <li>
-                        <p class="comm_text">
-                          <a class="prof_name">' . $innerValue['comname'] . '</a>' . $innerValue['comcont'] . '
-                        </p>
-                      </li>
-                      ';
-                                        $k++;
-                                        if ($k >= 4) {
-                                            break;
-                                        }
-                                    }
-                                } ?>
-                            </ul>
-                        </div>
+                        <?php require "php/comment.php"; ?>
                         <div class="posted_date">
-                            <?php require "date.php"; ?>
+                            <?php require "php/date.php"; ?>
                         </div>
                         <div class="mkcomment">
                             <form class="mkcomm_b_box">

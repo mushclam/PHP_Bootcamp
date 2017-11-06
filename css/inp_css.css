@@ -22,7 +22,7 @@ header{
   align-items: center;
 }
 .sprite_btn{
-  background-image: url('img/sprite_core.png');
+  background-image: url('../img/sprite_core.png');
   background-repeat: no-repeat;
 }
 
@@ -30,7 +30,7 @@ header{
   flex-direction: row;
 }
 .fav_logo{
-  background-image: url('img/sprite_core.png');
+  background-image: url('../img/sprite_core.png');
   background-repeat: no-repeat;
   background-position: -177px 0;
   height: 35px; width: 176px;
@@ -67,7 +67,7 @@ header{
   flex-direction: row;
 }
 .search_btn{
-  background-image: url('img/sprite_core.png');
+  background-image: url('../img/sprite_core.png');
   background-repeat: no-repeat;
   background-position: -137px -210px;
   height: 10px; width: 10px;

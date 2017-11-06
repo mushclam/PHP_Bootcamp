@@ -54,7 +54,7 @@ div, span, nav, footer{
 }
 .phone{
   align-self: center;
-  background-image: url('img/home_phone.png');
+  background-image: url('../img/home_phone.png');
   background-repeat: no-repeat;
   background-position: 0 0;
   -webkit-background-size: 454px 618px;
@@ -86,7 +86,7 @@ div, span, nav, footer{
 }
 .header{
   margin: 22px auto 8px;
-  background-image: url('img/sprite_core.png');
+  background-image: url('../img/sprite_core.png');
   background-position: 0 0;
   width: 175px; height: 52px;
   text-align: center;
@@ -125,7 +125,7 @@ div, span, nav, footer{
   top: 2px;
   margin-right: 8px;
   position: relative;
-  background-image: url('img/sprite_core.png');
+  background-image: url('../img/sprite_core.png');
   background-position: -312px -115px;
   width: 16px; height: 16px;
   background-repeat: no-repeat;
