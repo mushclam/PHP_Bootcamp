@@ -1,11 +1,15 @@
 <?php
 require_once "dblink.php";
-$readyComm = $dbProc->prepare("SELECT * FROM `comm_:commid`");
-$readyComm->bindParam(":commid", $commId);
-$commId = (int)$outerValue['commid'];
-
-$readyComm->execute();
-$commList = $readyComm->fetchAll(PDO::FETCH_ASSOC);
+// $readyComm = $dbProc->prepare("SELECT * FROM `comm_:commid`");
+// $readyComm->bindParam(":commid", $commId);
+// $commId = (int)$outerValue['commid'];
+//
+// $readyComm->execute();
+// // var_dump($readyComm); exit;
+// $commList = $readyComm->fetchAll(PDO::FETCH_ASSOC);
+// var_dump($outerValue['commid']);
+// var_dump($dbConn);
+$commList = $dbConn->commCall((int)$outerValue['commid']);
 ?>
 
 <?php if (count($commList) > 4): ?>
