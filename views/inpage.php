@@ -34,10 +34,7 @@
 </header>
 <div class="main">
     <div class="container">
-        <?php
-        require_once "php/dblink.php";
-        $post = $dbConn->postCall();
-        foreach ($post as $outerValue): ?>
+        <?php foreach ($post as $outerValue): ?>
             <div class="content signup_box">
                 <div class="user_box">
                     <div class="profile">
@@ -56,7 +53,7 @@
                             <label for="comm" class="sprite_btn comm_btn"></label>
                         </div>
                         <a href="#">좋아요
-                            <?php require "php/like.php"; ?>개</a>
+                            <?php $addOn->like($outerValue['likenum']); ?>개</a>
                     </div>
                     <div class="main_text">
                         <?php if ($outerValue['mt']): ?>
@@ -68,9 +65,9 @@
                         <?php endif; ?>
                     </div>
                     <div class="comment_box">
-                        <?php require "php/comment.php"; ?>
+                        <?php include "php/comment.php"; ?>
                         <div class="posted_date">
-                            <?php require "php/date.php"; ?>
+                            <?php $addOn->date($outerValue['date']);; ?>
                         </div>
                         <div class="mkcomment">
                             <form class="mkcomm_b_box">

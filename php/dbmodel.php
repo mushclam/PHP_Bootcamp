@@ -4,20 +4,22 @@ class dbConnection
 {
     private $user;
     private $pwd;
+    private $dbname;
     private $dbp;
 
-    public function __construct($user, $pwd)
+    public function __construct($dbname, $user, $pwd)
     {
         $this->user = $user;
         $this->pwd = $pwd;
+        $this->dbname = $dbname;
     }
 
-    public function dbLogin($dbname)
+    public function dbLogin()
     {
-        return $this->dbp = new PDO("mysql:host=localhost;dbname={$dbname};charset=utf8", $this->user, $this->pwd);
+        return $this->dbp = new PDO("mysql:host=localhost;dbname={$this->dbname};charset=utf8", $this->user, $this->pwd);
     }
 
-    public function postCall()
+    public function get_Post()
     {
         $ready = $this->dbp->query("SELECT * FROM `posted` AS p LEFT JOIN `user` AS u ON p.urid = u.id");
         return $result = $ready->fetchAll(PDO::FETCH_ASSOC);
@@ -35,7 +37,4 @@ class dbConnection
         return $result;
     }
 }
-
-$dbConn = new dbConnection("root", "life70think30");
-$dbProc = $dbConn->dbLogin("php_bootcamp");
 ?>

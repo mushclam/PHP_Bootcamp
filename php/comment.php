@@ -1,18 +1,7 @@
 <?php
-require_once "dblink.php";
-// $readyComm = $dbProc->prepare("SELECT * FROM `comm_:commid`");
-// $readyComm->bindParam(":commid", $commId);
-// $commId = (int)$outerValue['commid'];
-//
-// $readyComm->execute();
-// // var_dump($readyComm); exit;
-// $commList = $readyComm->fetchAll(PDO::FETCH_ASSOC);
-// var_dump($outerValue['commid']);
-// var_dump($dbConn);
+require_once "dbmodel.php";
 $commList = $dbConn->commCall((int)$outerValue['commid']);
-?>
-
-<?php if (count($commList) > 4): ?>
+if (count($commList) > 4): ?>
     <div class="ext_btn">댓글 모두 보기</div>
 <?php endif; ?>
 <div class="comment">
