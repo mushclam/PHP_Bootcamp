@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PHP_Bootcamp.iml" filepath="$PROJECT_DIR$/.idea/PHP_Bootcamp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PHP_CLI/.idea/PHP_CLI.iml" filepath="$PROJECT_DIR$/../PHP_CLI/.idea/PHP_CLI.iml" />
     </modules>
   </component>
 </project>
