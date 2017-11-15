@@ -38,12 +38,12 @@
             <div class="content signup_box">
                 <div class="user_box">
                     <div class="profile">
-                        <span class="prof_pic"><img src="<?= $outerValue['uricon'] ?>" alt=""
+                        <span class="prof_pic"><img src="<?= $outerValue['icon'] ?>" alt=""
                                                     style="width:30px; height:30px;"></span>
-                        <div class="prof_name"><?= $outerValue['urname'] ?></div>
+                        <div class="prof_name"><?= $outerValue['nickname'] ?></div>
                     </div>
                 </div>
-                <div class="picture"><img src="<?= $outerValue['contopic'] ?>" alt=""></div>
+                <div class="picture"><img src="<?= $outerValue['picture'] ?>" alt=""></div>
                 <div class="other">
                     <div class="react_box">
                         <div class="react_btn">
@@ -53,13 +53,13 @@
                             <label for="comm" class="sprite_btn comm_btn"></label>
                         </div>
                         <a href="#">좋아요
-                            <?php $addOn->like($outerValue['likenum']); ?>개</a>
+                            <?php $addOn->like($dbConn->get_Like_Num($outerValue['idpost'])); ?>개</a>
                     </div>
                     <div class="main_text">
-                        <?php if ($outerValue['mt']): ?>
+                        <?php if ($outerValue['content']): ?>
                             <p>
-                                <a href="#" class="prof_name"><?= $outerValue['urname'] ?></a>
-                                <?= $outerValue['mt'] ?>
+                                <a href="#" class="prof_name"><?= $outerValue['nickname'] ?></a>
+                                <?= $outerValue['content'] ?>
                                 <a href="#" class="ext_btn">문구 더 보기</a>
                             </p>
                         <?php endif; ?>

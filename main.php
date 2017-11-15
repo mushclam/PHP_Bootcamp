@@ -1,7 +1,7 @@
 <?php
 require 'php/dbmodel.php';
 require 'conf/db.php';
-$dbConn = new dbConnection($dbconfig['dbname'], $dbconfig['user'], $dbconfig['pw']);
+$dbConn = new dbConnection($dbconfig['dbname'], $dbconfig['user'], $dbconfig['pwd']);
 $dbProc = $dbConn->dbLogin();
 $post = $dbConn->get_Post();
 require 'php/add_on.php';

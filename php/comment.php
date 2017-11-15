@@ -1,6 +1,6 @@
 <?php
 require_once "dbmodel.php";
-$commList = $dbConn->commCall((int)$outerValue['commid']);
+$commList = $dbConn->get_Comm((int)$outerValue['idpost']);
 if (count($commList) > 4): ?>
     <div class="ext_btn">댓글 모두 보기</div>
 <?php endif; ?>
@@ -11,7 +11,7 @@ if (count($commList) > 4): ?>
             <?php foreach ($commList as $innerValue): ?>
                       <li>
                         <p class="comm_text">
-                          <a class="prof_name"><?= $innerValue['comname']?></a><?=$innerValue['comcont']?>
+                          <a class="prof_name"><?= $innerValue['nickname']?></a><?=$innerValue['content']?>
                         </p>
                       </li>
                 <?php
