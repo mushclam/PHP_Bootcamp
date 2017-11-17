@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width">
 
-  <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+  <link rel="stylesheet" href="./css/stylesheet.css" type="text/css">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
         <div class="signup_box">
             <h1 class="header">Instagram</h1>
           <div class="login_box">
-            <form action="">
+            <form action="./php/sign_up.php" method="post">
               <h2 class="signup_text">친구들의 사진과 동영상을 보려면 가입하세요.</h2>
               <div class="btn_box">
                 <button class="btn">
@@ -54,28 +54,28 @@
               </div>
               <div class="input_box">
                 <div class="input_s_box">
-                  <input type="text" placeholder="휴대폰 번호 또는 이메일 주소">
+                  <input type="text" placeholder="휴대폰 번호 또는 이메일 주소" name="address">
                 </div>
               </div>
               <div class="input_box">
                 <div class="input_s_box">
-                  <input type="text" placeholder="성명">
+                  <input type="text" placeholder="성명" name="name" maxlength="45">
                 </div>
               </div>
               <div class="input_box">
                 <div class="input_s_box">
-                  <input type="text" placeholder="사용자 이름">
+                  <input type="text" placeholder="사용자 이름" name="nickname">
                 </div>
               </div>
               <div class="input_box">
                 <div class="input_s_box">
-                  <input type="password" placeholder="비밀번호">
+                  <input type="password" placeholder="비밀번호" name="password">
                 </div>
               </div>
                 <div class="btn_box">
-                    <a class="btn" href="main.php">
+                    <button type="submit" class="btn">
                       <p>가입</p>
-                    </a>
+                    </button>
                 </div>
             </form>
             <p class="agree">가입하면 Instagram의 <a href="">약관</a> 및 <a href="">개인정보처리방침</a>에 동의하게 됩니다.</p>

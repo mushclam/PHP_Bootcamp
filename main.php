@@ -1,5 +1,5 @@
 <?php
-require 'php/dbmodel.php';
+require 'php/mainmodel.php';
 require 'conf/db.php';
 $dbConn = new dbConnection($dbconfig['dbname'], $dbconfig['user'], $dbconfig['pwd']);
 $dbProc = $dbConn->dbLogin();

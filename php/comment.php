@@ -1,5 +1,5 @@
 <?php
-require_once "dbmodel.php";
+require_once "mainmodel.php";
 $commList = $dbConn->get_Comm((int)$outerValue['idpost']);
 if (count($commList) > 4): ?>
     <div class="ext_btn">댓글 모두 보기</div>
